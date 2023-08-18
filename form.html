@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+  </head>
+
+  <body>
+    <h1>Contact Detail</h1>
+
+    <fieldset>
+
+      <legend>Your Information</legend>
+
+      <form action="mailto:sulavshakya2053@gmail.com?subject=info" method="post" enctype="text/plain">
+        <p>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="enter email">
+        </p>
+        <p>
+          <label for="name">Username</label>
+          <input type="text" name="name" id="name">
+        </p>
+
+        <p>
+        <h4>Please Select Your Gender</h4>
+
+
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="male" value="male">
+
+
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="female" value="female">
+        </p>
+        <p>
+        <h4>Please Select Your Habits</h4>
+        <label for="dance">Dance</label>
+        <input type="checkbox" name="habits" id="dance" value="dance">
+        <label for="sing">Sing</label>
+        <input type="checkbox" name="habits" id="sing" value="sing">
+        </p>
+
+
+        <p>
+        <h4>Please Select Your Fav Coffee</h4>
+
+        <select name="coffee" id="coffee">
+          <option value="latte">Latte</option>
+          <option value="americano" selected>Americano</option>
+          <option value="cappuccino">Cappuccino</option>
+        </select>
+        <br>
+        <br>
+        <select name="coffeetype" id="coffeetype">
+          <optgroup label="Strong Coffee">
+            <option value="expresso">Expresso</option>
+            <option value="moch">Mochiyato</option>
+          </optgroup>
+          <optgroup label="Light Coffee">
+            <option value="latte">Latte</option>
+            <option value="capp">Cappuccino</option>
+          </optgroup>
+        </select>
+        <select>
+          <optgroup label="Strong coffee">
+            <option value="expresso">Expresso</option>
+            <option value="moch">Mochiyato</option>
+          </optgroup>
+
+          <optgroup label="Light Coffee">
+            <option value="latte">Latte</option>
+            <option value="capp">Cappuccino</option>
+          </optgroup>
+        </select>
+        </p>
+
+        <p>
+        <h4>Further information</h4>
+        <textarea name="message" id="" cols="40" rows="10"></textarea>
+        </p>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+
+
+
+
+
+    </fieldset>
+  </body>
+
+</html>
