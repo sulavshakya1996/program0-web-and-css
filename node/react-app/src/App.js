@@ -1,25 +1,20 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
-import RootLa
-
+import RootLayout from './components/RootLayout'
+import HomePage from './pages/HomePage'
+import NotFound from './pages/NotFound'
 
 
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<RootLayOut />} >
+      <Route path='/' element={<RootLayout />} >
         <Route index element={<HomePage />} />
-        <Route path='about' element={<About />} />
-        <Route path='random' element={<Ramdom />} />
         <Route path='*' element={<NotFound />} />
 
       </Route>
 
     </Routes>
-
-      </Route >
-
-    </Routes >
   )
 }
 
