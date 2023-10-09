@@ -28,7 +28,15 @@ const Crud = () => {
   const formik = useFormik({
     initialValues: {
       username: '',
-      email: ''
+      email: '',
+      gender: '',
+      habits: [],
+      country: '',
+      msg: '',
+      imageFile: null,
+      imageReview: ''
+
+
 
     },
     onSubmit: (val) => {
@@ -60,7 +68,7 @@ const Crud = () => {
             <div className="flex gap-6">
 
               {radioData.map((radio, i) => {
-                return <Radio key={i} name="gender" label={radio.label} value={radio.value} />;
+                return <Radio onChange={formik.handleChange} key={i} name="gender" label={radio.label} value={radio.value} />;
               })}
 
             </div>
@@ -70,26 +78,47 @@ const Crud = () => {
             <div className="flex gap-6">
 
               {checkData.map((check, i) => {
-                return <Checkbox key={i} name="habits" label={check.label} value={check.value} />;
+                return <Checkbox onChange={formik.handleChange} key={i} name="habits" label={check.label} value={check.value} />;
               })}
 
             </div>
           </div>
           <div className='space-y-3'>
             <p>Select Your Country</p>
-            <Select label="Select Version">
-              <Option>Nepal</Option>
-              <Option>India</Option>
-              <Option>China</Option>
+            <Select onChange={(e) => {
+              formik.setFieldValue('country', e)
+            }}
+              label="Select Country">
+              <Option value='Nepal'>Nepal</Option>
+              <Option value='India'>India</Option>
+              <Option value='China'>China</Option>
             </Select>
           </div>
           <div>
-            <Textarea label="Message" />
+            <Textarea
+              value={formik.values.msg}
+              onChange={(e) => {
+                console.log(e.target.value);
+              }}
+              label="Message" />
           </div>
 
           <div className='space-y-3'>
             <p>Select Your Image</p>
-            <Input label="Image Select" type='file' />
+            <Input
+              onChange={(e) => {
+                const file = e.target.files[0];
+                formik.setFieldValue('imagefile, file');
+                const url = URL.createObjectURL(file);
+                console.log(url);
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.addEventListener('load', (e) => {
+                  formik.setFieldValue('imageReview', e.target.result);
+                })
+              }}
+              label="Image Select" type='file' accept="image/*" />
+            {formik.values.imageReview && <img src={formik.values.imageReview} alt="" />}
           </div>
 
 
